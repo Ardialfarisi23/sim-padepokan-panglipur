@@ -18,4 +18,8 @@ Proyek ini dirancang untuk mendigitalisasi manajemen data pada organisasi Laskar
 - Antarmuka responsif untuk berbagai perangkat.
 
 ---
-*Developed by [Ardi Alfarisi](https://github.com/Ardialfarisi23)*
+---
+### 👥 Development Team
+- **Project Lead:** [Ardi Alfarisi](https://github.com/Ardialfarisi23)
+- **Member 1:** [Renal_Adriandri]
+- **Member 2:** [Ismi_Nurcahyani]
