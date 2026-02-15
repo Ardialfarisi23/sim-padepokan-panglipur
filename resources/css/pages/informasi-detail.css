@@ -1,0 +1,129 @@
+/* ==============================
+   DETAIL BERITA LAYOUT
+============================== */
+
+
+.detail-berita {
+    background: #eaffd8;
+    padding: 60px 0;
+}
+
+
+.detail-container {
+    max-width: 1450px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 2.2fr 1fr;
+    gap: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+   
+}
+
+
+/* MAIN CONTENT */
+.detail-main {
+    background: #ffffff;
+    border-radius: 22px;
+    padding: 30px;
+}
+
+
+.detail-thumb {
+    width: 100%;
+    border-radius: 18px;
+    margin-bottom: 24px;
+}
+
+
+.detail-title {
+    font-size: 26px;
+    font-weight: 800;
+    margin-bottom: 10px;
+    color: #111;
+}
+
+
+.detail-date {
+    font-size: 13px;
+    color: #777;
+}
+
+
+.detail-content {
+    margin-top: 24px;
+    font-size: 15px;
+    line-height: 1.8;
+    color: #333;
+}
+
+
+/* SIDEBAR */
+.detail-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+
+.sidebar-title {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+
+.sidebar-card {
+    background: #ffffff;
+    border-radius: 18px;
+    display: flex;
+    overflow: hidden;
+}
+
+
+.sidebar-card img {
+    width: 110px;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.sidebar-body {
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+
+.sidebar-label {
+    font-size: 11px;
+    color: #777;
+}
+
+
+.sidebar-body h4 {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+
+/* BUTTON */
+.sidebar-btn {
+    margin-top: auto;
+    font-size: 12px;
+    padding: 6px 12px;
+    background: #e8f7d4;
+    border-radius: 8px;
+    color: #1b5e20;
+    width: fit-content;
+}
+
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+    .detail-container {
+        grid-template-columns: 1fr;
+    }
+}

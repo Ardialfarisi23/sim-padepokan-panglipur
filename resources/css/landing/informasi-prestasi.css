@@ -1,0 +1,483 @@
+/* WRAPPER */
+.lp-wrapper {
+    width: 100%;
+    background: linear-gradient(135deg, #3da35d, #96e072);
+    padding: 40px 0; /* HILANGKAN padding kiri-kanan */
+}
+
+
+.lp-inner {
+    width: 100%;
+    max-width: 1400px; /* bisa 1200 / 1300 / 1400 */
+    margin: 0 auto;
+    padding: 0 24px; /* ini yang bikin rapi tapi tetap penuh */
+}
+
+
+/* SECTION */
+.lp-section {
+    margin-bottom: 60px;
+    margin-top: 5px;
+}
+
+
+.lp-title {
+    text-align: center;
+    color: #fff;
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 30px;
+}
+
+
+/* GRID */
+.lp-grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+
+.lp-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+
+/* INFORMASI CARD */
+.lp-card-horizontal {
+    display: flex;
+    background: #fff;
+    border-radius: 18px;
+    overflow: hidden;
+}
+
+
+.lp-card-horizontal img {
+    width: 45%;
+    object-fit: cover;
+}
+
+
+.lp-card-content {
+    padding: 20px;
+}
+
+
+.lp-card-content h3 {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+
+/* PRESTASI CARD */
+.lp-card-vertical {
+    background: #fff;
+    border-radius: 18px;
+    overflow: hidden;
+}
+
+
+.lp-card-vertical img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+
+.lp-card-body {
+    padding: 16px;
+}
+
+
+/* LABEL */
+.lp-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #388e3c;
+}
+
+
+/* BUTTON */
+.lp-center {
+    text-align: center;
+    margin-top: 30px;
+}
+
+
+/* EMPTY */
+.lp-empty {
+    color: #fff;
+    text-align: center;
+}
+
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .lp-grid-2,
+    .lp-grid-3 {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* =============================
+   INFORMASI UI STYLE (LANDING)
+============================= */
+
+
+/* ===============================
+   INFORMASI CARD — PIXEL LOCK
+================================ */
+
+
+.info-ui-card {
+    width: 550px;
+    height: 300px;
+    display: flex;
+    background: #ffffff;
+    border-radius: 22px;
+    overflow: hidden;
+    box-shadow: 0 14px 32px rgba(0, 0, 0, 0.12);
+    max-width: 100%;
+    border-radius: 20px;
+}
+
+
+.info-ui-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+}
+
+
+/* THUMBNAIL */
+.info-ui-image {
+    width: 260px;
+    height: 400px;
+    flex-shrink: 0;
+}
+
+
+.info-ui-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* CONTENT */
+.info-ui-content {
+    position: relative;
+    padding: 28px 32px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* LABEL */
+.info-ui-label {
+    font-size: 10px;
+    font-weight: 400;
+    color: #111827;
+    opacity: 0.5;
+    margin-bottom: 2px;
+}
+
+
+/* TITLE */
+.info-ui-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: #111827;
+    line-height: 1.3;
+    margin-bottom: 17px;
+}
+
+
+/* DESC */
+.info-ui-desc {
+    font-size: 11px;
+    color: #000000; /* 🔑 lebih kontras */
+    line-height: 1.7;
+    max-width: 95%;
+    opacity: 0.95;
+}
+
+
+/* BUTTON — POJOK KANAN BAWAH */
+.info-ui-action {
+    position: absolute;
+    right: 28px;
+    bottom: 24px;
+}
+
+
+/* BUTTON SIZE LOCK */
+.info-ui-btn {
+    width: 172px;
+    height: 29px;
+    padding: 0 18px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: scale(0.95);
+}
+
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+    .info-ui-card {
+        width: 100%;
+        height: auto;
+        flex-direction: column;
+    }
+    .info-ui-image {
+        width: 100%;
+        height: 220px;
+    }
+
+
+    .info-ui-content {
+        padding: 22px;
+    }
+
+
+    .info-ui-action {
+        position: static;
+        margin-top: 22px;
+        align-self: flex-end;
+    }
+}
+
+
+/* ================================
+   INFORMASI - HORIZONTAL SCROLL
+================================ */
+
+
+/* ubah grid jadi flex horizontal */
+.info-ui-scroll {
+    display: flex;
+    gap: 28px;
+    overflow-x: auto;
+    padding-bottom: 16px;
+
+
+    scrollbar-width: none; /* Firefox */
+}
+
+
+.info-ui-scroll::-webkit-scrollbar {
+    display: none; /* Chrome, Safari */
+}
+
+
+/* card tidak mengecil */
+.info-ui-card {
+    flex-shrink: 0;
+}
+
+
+/* ===============================
+   PRESTASI SECTION
+=============================== */
+
+
+.prestasi-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+}
+
+
+/* CARD */
+.prestasi-card {
+    background: #ffffff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    min-width: 280px;
+    max-width: 280px;
+}
+
+
+.prestasi-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+}
+
+
+/* IMAGE */
+.prestasi-thumb {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+
+.prestasi-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* CONTENT */
+.prestasi-content {
+    padding: 18px 20px 22px;
+}
+
+
+.prestasi-label {
+    font-size: 12px;
+    font-weight: 400;
+    color: #1b1b1b;
+    display: inline-block;
+    margin-bottom: 6px;
+    opacity: 0.6;
+}
+
+
+.prestasi-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1b1b1b;
+    margin-bottom: 8px;
+}
+
+
+.prestasi-desc {
+    font-size: 12px;
+    color: #555;
+    line-height: 1.6;
+}
+
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+    .prestasi-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+@media (max-width: 600px) {
+    .prestasi-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* =============================
+   PRESTASI SCROLL HORIZONTAL
+============================= */
+
+
+.prestasi-scroll {
+    display: flex;
+    gap: 24px;
+    overflow-x: auto;
+    padding-bottom: 12px;
+    scroll-behavior: smooth;
+}
+
+
+/* hide scrollbar */
+.prestasi-scroll::-webkit-scrollbar {
+    display: none;
+}
+.prestasi-scroll {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+
+/* CARD */
+
+
+/* IMAGE */
+.prestasi-image img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+
+/* CONTENT */
+.prestasi-content {
+    padding: 16px;
+}
+
+
+.prestasi-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #2e7d32;
+}
+
+
+.prestasi-title {
+    font-size: 16px;
+    font-weight: 700;
+    margin: 6px 0;
+    color: #111827;
+}
+
+
+.prestasi-desc {
+    font-size: 13px;
+    color: #4b5563;
+    line-height: 1.5;
+}
+
+
+/* ================================
+   ANIMATED BUTTON - PRESTASI
+================================ */
+.animated-button--outline-white {
+    background: transparent;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    box-shadow: none;
+}
+
+
+/* text */
+.animated-button--outline-white .text {
+    color: #ffffff;
+}
+
+
+/* arrow */
+.animated-button--outline-white svg {
+    fill: #ffffff;
+}
+
+
+/* circle hover */
+.animated-button--outline-white .circle {
+    background: #2e7d32; /* hijau */
+}
+
+
+/* hover */
+.animated-button--outline-white:hover {
+    color: #ffffff;
+    border-color: #ffffff;
+}
+
+
+/* hover arrow */
+.animated-button--outline-white:hover svg {
+    fill: #ffffff;
+}
+.lp-center {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}

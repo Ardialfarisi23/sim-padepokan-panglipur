@@ -1,0 +1,468 @@
+/* ==========================================================================
+   1. DASHBOARD LAYOUT & TITLES (DNA Admin)
+   ========================================================================== */
+.dashboard-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 20px;
+    padding-bottom: 20px;
+}
+
+.anggota-dashboard-main-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 1px;
+    color: #1a1a1a;
+}
+
+/* Row & Column System */
+.dash-row {
+    display: flex;
+    gap: 24px;
+    width: 100%;
+}
+
+.dash-col {
+    flex: 1;
+    min-width: 0;
+}
+
+/* Global Card Component */
+.dash-card {
+    background: #fff;
+    border-radius: 24px;
+    padding: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(0, 0, 0, 0.02);
+    height: 100%; /* Agar tinggi card sejajar dalam satu row */
+}
+
+.dash-card h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* ==========================================================================
+   2. AGENDA SECTION (List Side)
+   ========================================================================== */
+.agenda-container {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.agenda-list-side {
+    flex: 1;
+}
+
+.agenda-scroll-area {
+    max-height: 280px; 
+    overflow-y: auto;
+    padding-right: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Scrollbar Styling Identik Admin */
+.agenda-scroll-area::-webkit-scrollbar { width: 5px; }
+.agenda-scroll-area::-webkit-scrollbar-track { background: #f8f9fa; border-radius: 10px; }
+.agenda-scroll-area::-webkit-scrollbar-thumb { background: #c8e6c9; border-radius: 10px; }
+.agenda-scroll-area::-webkit-scrollbar-thumb:hover { background: #a5d6a7; }
+
+/* Agenda Pills (Compact Items) */
+.agenda-pill-compact {
+    background: #f0f7ff;
+    padding: 8px 16px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #e1f0ff;
+    transition: all 0.2s ease;
+}
+
+.agenda-label-compact {
+    font-size: 9px;
+    font-weight: 700;
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 4px;
+    width: fit-content;
+    margin-bottom: 4px;
+}
+
+.agenda-text-compact {
+    font-size: 13px;
+    font-weight: 600;
+    color: #333;
+    line-height: 1.4;
+    margin: 0;
+}
+
+/* Badge Colors */
+.label-green, .date-green { background-color: #52a46d !important; color: white !important; }
+.label-yellow, .date-yellow { background-color: #ffcc4d !important; color: white !important; }
+.label-blue, .date-blue { background-color: #7eb4ff !important; color: white !important; }
+.label-green-faded, .date-green-faded { background-color: #e8f5e9 !important; color: #2e7d32 !important; border: 1px solid #c8e6c9; }
+
+/* ==========================================================================
+   3. CALENDAR STYLING (Inside Agenda Card)
+   ========================================================================== */
+.agenda-calendar-side {
+    width: 280px;
+    flex-shrink: 0;
+}
+
+.calendar-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 16px;
+    border: 1px solid #f0f0f0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.cal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.month-year {
+    font-size: 14px;
+    font-weight: 700;
+    color: #2c3e50;
+}
+
+.nav-btn {
+    background: #f8f9fa;
+    border: none;
+    color: #95a5a6;
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    transition: all 0.2s;
+}
+
+.nav-btn:hover {
+    background: #e8f5e9;
+    color: #2e7d32;
+}
+
+.cal-weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.cal-weekdays span {
+    font-size: 9px;
+    font-weight: 700;
+    color: #bdc3c7;
+}
+
+.cal-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+}
+
+.cal-date {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 600;
+    color: #4a5568;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.cal-date:hover:not([class*="date-"]) {
+    background: #f1f8e9;
+    color: #2e7d32;
+}
+
+.date-today {
+    border: 2px solid #ffcc4d !important;
+}
+
+/* ==========================================================================
+   4. RESPONSIVE DESIGN (Flexible Devices)
+   ========================================================================== */
+
+/* Tablet & HP Landscape */
+@media (max-width: 992px) {
+    .dash-row {
+        flex-direction: column;
+    }
+    
+    .agenda-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .agenda-calendar-side {
+        width: 100%;
+        max-width: 320px;
+        margin-top: 20px;
+    }
+
+    .agenda-list-side {
+        width: 100%;
+    }
+}
+
+/* Handphone Portrait */
+@media (max-width: 576px) {
+    .dashboard-wrapper {
+        padding: 15px;
+    }
+
+    .dash-card {
+        padding: 5px;
+    }
+
+    .anggota-dashboard-main-title {
+        font-size: 20px;
+    }
+
+    .cal-grid {
+        gap: 2px;
+    }
+
+    .cal-date {
+        font-size: 10px;
+    }
+}
+/* ==========================================================================
+   HASIL UJIAN SECTION
+   ========================================================================== */
+.card-ujian-wrapper {
+    background: #fff;
+    padding: 16px 20px;
+    border-radius: 24px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+}
+
+.ujian-table-container {
+    margin-top: 15px;
+}
+
+.ujian-header-row {
+    display: flex;
+    padding: 12px 16px;
+    background: #f0f7ff; /* Warna biru muda sesuai gambar */
+    border-radius: 12px 12px 0 0;
+    font-size: 13px;
+    font-weight: 700;
+    color: #4a5568;
+}
+
+.ujian-row-item {
+    display: flex;
+    align-items: center;
+    padding: 14px 16px;
+    border-bottom: 1px solid #edf2f7;
+    transition: all 0.2s;
+}
+
+.ujian-row-item:hover {
+    background: #f8fafc;
+}
+
+.col-tgl { flex: 1.5; font-size: 11px; font-weight: 500; color: #64748b; }
+.col-sabuk { flex: 1.5; font-size: 11px;}
+.col-nilai { flex: 1; font-weight: 800; color: #1a202c; font-size: 11px; }
+.col-status { flex: 1; font-size: 11px;}
+
+/* Status Badges */
+.status-badge {
+    padding: 4px 12px;
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.status-lulus { background: #dcfce7; color: #166534; }
+.status-tidak { background: #fee2e2; color: #991b1b; }
+
+/* Sabuk Badges (Optional - agar berwarna sesuai nama sabuk) */
+.sabuk-badge {
+    font-weight: 600;
+    font-size: 13px;
+    color: #4a5568;
+}
+
+.empty-state-simple {
+    text-align: center;
+    padding: 30px;
+    color: #a0aec0;
+    font-style: italic;
+}
+
+/* ==========================================================================
+   SERAGAM CARD STYLING
+   ========================================================================== */
+.seragam-list-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.seragam-row-item {
+    background: #fcfdfe;
+    border: 1px solid #f0f4f8;
+    padding: 12px 16px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: all 0.3s ease;
+}
+
+
+.seragam-icon-box {
+    width: 40px;
+    height: 40px;
+    background: #eef2ff;
+    color: #38B000;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.seragam-info {
+    flex: 1;
+}
+
+.meta-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 2px;
+}
+
+.meta-item {
+    font-size: 11px;
+    color: #718096;
+}
+
+.meta-divider {
+    width: 4px;
+    height: 4px;
+    background: #cbd5e0;
+    border-radius: 50%;
+}
+
+/* Status Pills */
+.status-pill {
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+}
+
+.status-menunggu { background: #fff7ed; color: #c2410c; border: 1px solid #ffedd5; }
+.status-diproses { background: #eff6ff; color: #1d4ed8; border: 1px solid #dbeafe; }
+.status-siap-diambil { background: #f0fdf4; color: #15803d; border: 1px solid #dcfce7; }
+.status-selesai { background: #f3f4f6; color: #4b5563; border: 1px solid #e5e7eb; }
+
+.empty-state-simple {
+    text-align: center;
+    padding: 20px;
+    color: #a0aec0;
+}
+
+/* ==========================================================================
+   STATISTICS SECTION
+   ========================================================================== */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 5px;
+}
+
+.stat-item {
+    background: #fff;
+    padding: 20px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.03);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+}
+
+.stat-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    background: #fff8e1; /* Warna default gold */
+    color: #fbc02d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.stat-icon span { font-size: 28px; }
+
+.icon-blue { background: #e3f2fd; color: #1976d2; }
+.icon-green { background: #e8f5e9; color: #2e7d32; }
+.icon-red { background: #ffebee; color: #d32f2f; }
+
+.stat-label {
+    font-size: 12px;
+    color: #7f8c8d;
+    margin: 0;
+    font-weight: 500;
+}
+
+.stat-value {
+    font-size: 18px;
+    font-weight: 700;
+    color: #2c3e50;
+    margin: 0;
+}
+
+/* Belt Indicator */
+.belt-indicator {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+}
+.belt-putih { background: #ecf0f1; border-top: 1px solid #bdc3c7; }
+.belt-kuning { background: #f1c40f; }
+.belt-hijau { background: #27ae60; }
+.belt-merah { background: #e74c3c; }
+.belt-hitam { background: #2c3e50; }
+
+/* Responsive Stats */
+@media (max-width: 768px) {
+    .stats-grid {
+        grid-template-columns: 1fr; /* Tumpuk satu-satu di HP */
+        gap: 12px;
+    }
+}

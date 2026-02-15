@@ -1,0 +1,417 @@
+/* ==========================================================================
+   HEADER & LAYOUT
+   ========================================================================== */
+.pg-seragam-wrapper {
+    padding: 5px;
+    min-height: 100vh;
+}
+
+.pg-seragam-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.pg-seragam-title {
+    font-size: 18px;
+    font-weight: 800;
+    color: #0f172a;
+    margin: 0;
+}
+
+/* ==========================================================================
+   STOCK CARDS (INFORMASI STOK)
+   ========================================================================== */
+.stok-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.stok-card {
+    background: white;
+    padding: 12px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+}
+
+.stok-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.stok-label {
+    font-size: 10px;
+    font-weight: 700;
+    color: #64748b;
+    letter-spacing: 0.05em;
+    margin-bottom: 8px;
+}
+
+.stok-value {
+    font-size: 24px;
+    font-weight: 800;
+    color: #1e293b;
+    line-height: 1;
+}
+
+.stok-unit {
+    font-size: 10px;
+    color: #94a3b8;
+    margin-top: 2px;
+}
+
+/* State: Stok Hampir Habis */
+.stok-low {
+    border-color: #fecaca;
+    background: #fff5f5;
+}
+
+.stok-low .stok-value { color: #dc2626; }
+
+.stok-warning {
+    font-size: 10px;
+    color: #dc2626;
+    font-weight: 700;
+    margin-top: 10px;
+    background: #fee2e2;
+    padding: 2px 8px;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+/* ==========================================================================
+   TABLE & SECTION STYLING
+   ========================================================================== */
+.section-container {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e2e8f0;
+}
+
+.section-header {
+    padding: 10px 15px;
+    background: #f8fafc;
+    border-bottom: 1px solid #e2e8f0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.section-header h3 {
+    font-size: 14px;
+    font-weight: 700;
+    margin: 0;
+    color: #334155;
+}
+
+.section-header .material-symbols-rounded { color: #3b82f6; }
+.color-proses .material-symbols-rounded { color: #f59e0b; }
+
+/* Custom Table Body */
+.custom-table table thead th {
+    background: #fff;
+    font-size: 11px;
+    color: #64748b;
+    padding: 10px 15px;
+    border-bottom: 2px solid #f1f5f9;
+}
+
+.custom-table table tbody td {
+    padding: 8px 15px;
+    vertical-align: middle;
+    font-size: 11px;
+    color: #475569;
+}
+
+/* ==========================================================================
+   BUTTONS & BADGES
+   ========================================================================== */
+.btn-restock {
+    background: #0f172a;
+    color: white;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: 0.2s;
+}
+
+.btn-restock:hover { background: #1e293b; transform: scale(1.02); }
+
+/* Badge Ukuran */
+.badge-ukuran {
+    background: #f1f5f9;
+    color: #475569;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 12px;
+}
+
+/* Action Buttons Circle */
+.btn-action-success, .btn-action-danger {
+    width: 30px; height: 30px; border-radius: 50%; border: none;
+    display: flex; align-items: center; justify-content: center;
+    transition: 0.2s;
+}
+
+.btn-action-success { background: #dcfce7; color: #15803d; }
+.btn-action-success:hover { background: #15803d; color: white; }
+
+.btn-action-danger { background: #fee2e2; color: #b91c1c; }
+.btn-action-danger:hover { background: #b91c1c; color: white; }
+
+/* Status Badges */
+.badge-status {
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: 800;
+    display: inline-block;
+}
+.badge-status.menunggu { background: #e0f2fe; color: #0369a1; }
+.badge-status.diproses { background: #fef3c7; color: #92400e; }
+.badge-status.siap-diambil { background: #dcfce7; color: #15803d; }
+
+/* Status Step Buttons */
+.btn-status-next {
+    background: #3b82f6; color: white; border: none;
+    padding: 6px 16px; border-radius: 8px; font-size: 12px; font-weight: 600;
+    display: inline-flex; align-items: center; gap: 5px;
+}
+
+.btn-status-finish {
+    background: #10b981; color: white; border: none;
+    padding: 6px 16px; border-radius: 8px; font-size: 12px; font-weight: 600;
+    display: inline-flex; align-items: center; gap: 5px;
+}
+
+/* ==========================================================================
+   MODAL SIZE SELECTOR
+   ========================================================================== */
+.size-selector-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+}
+
+.size-option {
+    padding: 10px 0;
+    font-weight: 700;
+    border-radius: 8px;
+    border: 2px solid #e2e8f0;
+    color: #64748b;
+}
+
+.btn-check:checked + .size-option {
+    background-color: #3b82f6 !important;
+    border-color: #3b82f6 !important;
+    color: white !important;
+}
+
+.btn-save-stock {
+    background: #10b981; color: white; border: none;
+    padding: 10px 24px; border-radius: 10px; font-weight: 700;
+    display: flex; align-items: center;
+}
+
+.btn-cancel {
+    background: #f1f5f9; color: #64748b; border: none;
+    padding: 10px 20px; border-radius: 10px; font-weight: 600;
+}
+
+/* ==========================================================================
+   MODAL CUSTOM STYLING
+   ========================================================================== */
+.custom-modal-content {
+    border-radius: 12px;
+    border: none;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.modal-header {
+    padding: 15px 20px;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-title-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.title-icon {
+    color: #3b82f6;
+    background: #eff6ff;
+    padding: 6px;
+    border-radius: 12px;
+    font-size: 18px;
+}
+
+.modal-title {
+    font-weight: 800;
+    color: #1e293b;
+    margin: 0;
+}
+
+.btn-close-custom {
+    background: #f1f5f9;
+    border: none;
+    width: 35px;
+    height: 35px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #64748b;
+    transition: 0.2s;
+}
+
+.btn-close-custom:hover { background: #fee2e2; color: #ef4444; }
+
+/* Body & Inputs */
+.modal-subtitle {
+    font-size: 12px;
+    color: #64748b;
+    margin-bottom: 15px;
+    padding: 0px 20px;
+}
+
+.form-group-custom { margin-bottom: 12px;
+padding: 0px 20px; 
+}
+
+.input-label {
+    display: block;
+    font-weight: 700;
+    font-size: 13px;
+    color: #334155;
+    margin-bottom: 8px;
+}
+
+/* Size Grid */
+.size-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+}
+
+.size-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 35px;
+    border: 2px solid #f1f5f9;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 12px;
+    color: #64748b;
+    transition: 0.2s;
+}
+
+.btn-check:checked + .size-item {
+    background: #3b82f6;
+    border-color: #3b82f6;
+    color: white;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+/* Input Number Custom */
+.input-with-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    left: 12px;
+    font-size: 16px;
+}
+
+.input-with-icon span {
+    position: absolute;
+    left: 15px;
+    color: #94a3b8;
+    font-size: 20px;
+}
+
+.input-with-icon input {
+    width: 100%;
+    padding: 8px 8px 8px 35px;
+    border: 2px solid #f1f5f9;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.input-with-icon input:focus {
+    border-color: #3b82f6;
+    outline: none;
+    background: #f8fafc;
+}
+
+/* Info Box */
+.modal-info-box {
+    background: #f0f9ff;
+    padding: 12px;
+    border-radius: 12px;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    margin-top: 25px;
+}
+
+.modal-info-box span { color: #0ea5e9; font-size: 20px; }
+.modal-info-box p { font-size: 11px; color: #0369a1; margin: 0; line-height: 1.5; }
+
+/* Footer */
+.modal-footer {
+    padding: 15px 20px;
+    border: none;
+    display: flex;
+    gap: 12px;
+}
+
+.btn-modal-cancel {
+    flex: 1;
+    padding: 8px;
+    border-radius: 8px;
+    border: none;
+    background: #f1f5f9;
+    color: #64748b;
+    font-size: 13px;
+    font-weight: 700;
+    transition: 0.2s;
+}
+
+.btn-modal-save {
+    flex: 2;
+    padding: 8px;
+    border-radius: 8px;
+    border: none;
+    background: #10b981;
+    color: white;
+    font-weight: 700;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: 0.2s;
+}
+
+.btn-modal-save:hover { background: #059669; transform: translateY(-2px); }

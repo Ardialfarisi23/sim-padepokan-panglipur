@@ -1,0 +1,118 @@
+.anggota-topbar {
+    height: 64px;
+    background: linear-gradient(90deg, #1b5e20, #2e7d32);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+}
+
+.topbar-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Tambahkan styling eksplisit untuk tombol hamburger */
+.hamburger-btn {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    display: none; /* Default: Tersembunyi di Desktop */
+    align-items: center;
+    padding: 8px;
+    margin-right: 5px;
+    border-radius: 50%;
+    transition: background 0.2s;
+}
+
+.hamburger-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.hamburger-btn .material-symbols-rounded {
+    font-size: 28px;
+}
+
+.topbar-logo {
+    width: 38px;
+    height: auto;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+}
+
+.topbar-title {
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+}
+
+.topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.user-badge {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 6px 16px;
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.user-badge-link {
+    text-decoration: none !important; /* Hapus garis bawah */
+    color: inherit !important;       /* Gunakan warna dari parent/default */
+    display: block;                  /* Agar area klik tetap bagus */
+}
+
+.user-badge-link:hover .user-badge {
+    background-color: rgba(0, 0, 0, 0.05); /* Sedikit gelap saat di-hover */
+    border-radius: 12px;
+    transition: all 0.2s ease;
+}
+
+.user-icon { font-size: 20px; color: #ffffff; }
+.user-name { font-size: 14px; color: #ffffff; font-weight: 600; text-decoration: none; text-transform: capitalize; }
+
+.icon-btn {
+    background: none; border: none; color: #fff;
+    cursor: pointer; padding: 8px; border-radius: 50%;
+    display: flex; align-items: center; transition: 0.2s;
+}
+
+.icon-btn:hover { background: rgba(255, 255, 255, 0.1); }
+
+/* --- RESPONSIVE BREAKPOINTS --- */
+
+/* Tablet & Mobile (Layar di bawah 992px) */
+@media screen and (max-width: 992px) {
+    .hamburger-btn {
+        display: flex; /* Munculkan hamburger di HP/Tablet */
+    }
+    
+    .topbar-title {
+        font-size: 14px;
+    }
+}
+
+/* Mobile Kecil (Layar di bawah 480px) */
+@media screen and (max-width: 480px) {
+    .topbar-title {
+        display: none; /* Sembunyikan judul agar tidak tabrakan dengan nama user */
+    }
+    
+    .user-name {
+        display: none; /* Sembunyikan teks nama, sisakan ikon user saja di HP sangat kecil */
+    }
+}

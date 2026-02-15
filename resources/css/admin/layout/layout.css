@@ -1,0 +1,23 @@
+.admin-wrapper {
+    min-height: 100vh;
+    background: #eaffd9;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.admin-layout {
+    display: flex;
+    flex: 1;
+}
+
+
+.admin-content {
+    flex: 1;
+    padding: 24px;
+     margin-left: 240px;  /* lebar sidebar */
+    padding-top: 16px;
+    padding-bottom: 64px; /* footer */
+    min-height: calc(100vh - 64px - 48px);
+    overflow-y: auto;
+}

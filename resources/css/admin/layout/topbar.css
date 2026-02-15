@@ -1,0 +1,83 @@
+/* =========================
+   TOPBAR
+========================= */
+.admin-topbar {
+    height: 64px;
+    background: linear-gradient(90deg, #1b5e20, #2e7d32); /* Hijau lebih deep & premium */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+}
+
+.topbar-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.topbar-logo {
+    width: 38px;
+    height: auto;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+}
+
+.topbar-title {
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+}
+
+.topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+/* Background untuk Username (User Badge) */
+.user-badge {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.15); /* Background transparan putih */
+    padding: 6px 16px;
+    border-radius: 50px; /* Bentuk Pill */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+
+.user-icon {
+    font-size: 20px;
+    color: #c8f0b6; /* Warna hijau muda */
+}
+
+.user-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: #fff;
+    text-transform: capitalize;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    border-radius: 50%;
+    transition: background 0.2s;
+}
+
+.icon-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+}

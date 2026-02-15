@@ -1,0 +1,9 @@
+!!! Database Rubah !!!
+!!! UI Figma Rubah !!!
+
+
+PR web lascar panglipur
+
+-di halaman informasi-detail & sejarah-detail ada space dibagian Bawah di atas navbar
+- Halaman Dashboard Anggota (system edit belum ke-update ke DB)
+- Halaman Dashboard Logistik (button tidak responsive "filter, edit, hapus")

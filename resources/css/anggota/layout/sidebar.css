@@ -1,0 +1,69 @@
+/* =========================
+    SIDEBAR ANGGOTA (DESKTOP)
+========================= */
+.anggota-sidebar {
+    width: 240px; 
+    padding: 16px 12px;
+    position: fixed;
+    top: 64px;          
+    left: 0;
+    bottom: 0;          
+    overflow-y: auto; /* Ubah ke auto agar bisa scroll jika menu banyak */
+    border-right: 1px solid #d2eec0;
+    transition: all 0.3s ease-in-out;
+    z-index: 1001; /* Naikkan agar di atas overlay */
+}
+
+.sidebar-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 6px; 
+}
+
+.sidebar-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px; 
+    color: #134611 !important; 
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 13.5px; 
+    font-weight: 500;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+/* Hover Effect */
+.sidebar-item:hover {
+    background-color: #ddfcc5 !important;
+    color: #38B000 !important;
+}
+
+/* Item Aktif */
+.sidebar-item.active {
+    background: #38B000 !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 12px rgba(46, 125, 50, 0.2);
+}
+
+.sidebar-item .material-symbols-rounded {
+    font-size: 20px;
+}
+
+/* =========================
+    RESPONSIVE (TABLET & HP)
+========================= */
+@media screen and (max-width: 992px) {
+    .anggota-sidebar {
+        left: -240px !important; /* Paksa sembunyi dulu */
+        display: block !important; /* Pastikan tidak display: none */
+        z-index: 1001 !important; /* Pastikan di atas overlay yang nilainya 998 */
+    background-color: #ffffff; /* Pastikan tidak transparan */
+        transition: left 0.3s ease-in-out;
+    }
+
+    .anggota-sidebar.show {
+        left: 0 !important; /* Munculkan saat class show ada */
+    }
+}

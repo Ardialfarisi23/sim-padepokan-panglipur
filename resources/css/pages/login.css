@@ -1,0 +1,150 @@
+/* WRAPPER */
+.login-wrapper {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    background-color: #E6FFDA;
+}
+
+
+/* LEFT IMAGE */
+.login-left {
+    width: 50%;
+    height: 100%;
+}
+
+
+.login-left img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+
+/* RIGHT FORM */
+.login-form-area {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* BOX */
+.login-box {
+    background: #ffffff;
+    width: 100%;
+    max-width: 420px;
+    padding: 36px;
+    border-radius: 20px;
+    box-shadow: 0 18px 40px rgba(0,0,0,0.12);
+}
+
+
+/* TITLE */
+.login-title {
+    font-size: 35px;
+    font-weight: 800;
+    color: #134611;
+    position: relative;
+    text-align: center;
+    display: block;
+    padding-bottom: 5px;      
+}
+
+
+.login-subtitle {
+    font-size: 13px;
+    color: #555;
+    margin-bottom: 26px;
+    text-align: center;
+    display: block;      
+}
+
+
+/* FORM */
+.form-group {
+    margin-bottom: 18px;
+}
+
+
+.form-group label {
+    font-size: 12px;
+    font-weight: 600;
+}
+
+
+.form-group input {
+    width: 100%;
+    height: 42px;
+    padding: 0 12px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+}
+
+
+/* Tombol Utama */
+.btn-login-submit {
+    width: 100%;
+    height: 44px;
+    border-radius: 12px;
+    background: #1b5e20;
+    color: #fff;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+
+
+
+.btn-login-submit:hover {
+    background: #2e7d32;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(1px);
+}
+
+
+
+
+.btn-login-submit:active {
+    transform: translateY(0);
+    background: #1b5e20;
+}
+
+
+
+
+.login-error {
+    background: #ffe5e5;
+    color: #b71c1c;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 18px;
+}
+
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+    .login-wrapper {
+        flex-direction: column;
+    }
+
+
+    .login-left,
+    .login-form-area {
+        width: 100%;
+        height: 50%;
+    }
+}
+
+
+.auth-body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+}

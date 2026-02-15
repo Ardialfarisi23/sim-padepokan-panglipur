@@ -1,0 +1,27 @@
+.hero-section {
+    min-height: 100vh;
+    margin-top: -70px;
+    background: url("/assets/img/hero_lp.jpeg") center/cover;
+    display: flex;
+    align-items: center;
+}
+
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        rgba(15, 61, 30, 0.85),
+        rgba(15, 61, 30, 0.1)
+    );
+}
+
+
+.hero-content {
+    color: #fff;
+    position: relative;
+    z-index: 2;
+}
+
+

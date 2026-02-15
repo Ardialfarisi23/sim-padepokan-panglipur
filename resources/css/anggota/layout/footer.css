@@ -1,0 +1,33 @@
+/* =========================
+    FOOTER ANGGOTA
+========================= */
+.anggota-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 30px;
+    background: #ffffff;
+    border-top: 1px solid #e5e7eb;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    font-size: 10px; /* Saya naikkan sedikit dari 8px agar lebih terbaca, tapi tetap minimalis */
+    color: #6b7280;
+    z-index: 1000;
+}
+
+.footer-left {
+    font-weight: 400; /* 150 terlalu tipis untuk font standar, 400 (normal) lebih aman */
+}
+
+.footer-right {
+    font-style: italic;
+}
+
+/* Penyesuaian untuk Main Content */
+/* Agar konten bawah tidak tertutup footer */
+.anggota-content {
+    padding-bottom: 40px !important; 
+}

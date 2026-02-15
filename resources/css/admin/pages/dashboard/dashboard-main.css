@@ -1,0 +1,622 @@
+/* ==========================================================================
+   1. DASHBOARD LAYOUT & TITLES
+   ========================================================================== */
+   .dashboard-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Jarak vertikal antar baris */
+    padding: 20px;
+}
+
+.dash-row {
+    display: flex;
+    gap: 20px; /* Jarak horizontal antar card */
+    width: 100%;
+}
+
+.dash-col {
+    flex: 1; /* Membuat lebar kolom kiri dan kanan sama (50%) */
+    min-width: 0; /* Mencegah card meluap */
+}
+
+.dash-col-empty {
+    flex: 1;
+}
+
+/* Penyesuaian agar Card Anggota lebarnya tetap konsisten */
+.card-anggota-wrapper {
+    width: 100%;
+    /* Pastikan tidak ada margin-right/left yang merusak lebar */
+}
+
+/* Responsif untuk layar HP */
+@media (max-width: 768px) {
+    .dash-row {
+        flex-direction: column;
+    }
+    .dash-col-empty {
+        display: none;
+    }
+}
+.dashboard-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding-bottom: 40px;
+}
+
+
+.dashboard-main-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #1a1a1a;
+}
+
+/* ==========================================================================
+   2. GLOBAL CARD COMPONENTS
+   ========================================================================== */
+.dash-card {
+    background: #fff;
+    border-radius: 24px;
+    padding: 24px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(0, 0, 0, 0.02);
+}
+
+.dash-card h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Helper Grid for Half-width Cards */
+.dashboard-grid-two {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+/* ==========================================================================
+   3. AGENDA SECTION (List & Scroll)
+   ========================================================================== */
+.agenda-container {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+}
+
+.agenda-list-side {
+    flex: 1;
+}
+
+.agenda-scroll-area {
+    max-height: 280px; /* Sedikit dikurangi agar proporsional */
+    overflow-y: auto;
+    padding-right: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* Jarak antar pill diperkecil */
+}
+
+/* Scrollbar Styling */
+.agenda-scroll-area::-webkit-scrollbar { width: 5px; }
+.agenda-scroll-area::-webkit-scrollbar-track { background: #f8f9fa; border-radius: 10px; }
+.agenda-scroll-area::-webkit-scrollbar-thumb { background: #c8e6c9; border-radius: 10px; }
+.agenda-scroll-area::-webkit-scrollbar-thumb:hover { background: #a5d6a7; }
+
+/* Agenda Pills (Compact Items) */
+.agenda-pill-compact {
+    background: #f0f7ff;
+    padding: 8px 16px; /* Padding vertikal dikurangi dari 12px ke 8px */
+    border-radius: 12px; /* Radius lebih kecil agar tidak terlalu membulat */
+    display: flex;
+    flex-direction: column;
+    gap: 0px; /* Menghilangkan jarak antara label dan teks */
+    border: 1px solid #e1f0ff;
+    transition: all 0.2s ease;
+}
+
+.agenda-label-compact {
+    font-size: 8.5px; /* Lebih kecil agar tidak dominan */
+    font-weight: 700;
+    color: #fff;
+    padding: 1px 8px;
+    border-radius: 4px; /* Kotak sedikit membulat, bukan pill total */
+    width: fit-content;
+    margin-bottom: 2px;
+}
+
+.agenda-text-compact {
+    font-size: 13px; /* Ukuran teks dikurangi */
+    font-weight: 600;
+    color: #333;
+    line-height: 1.2;
+    margin: 0;
+}
+
+/* Badge Colors */
+.label-green  { background-color: #52a46d; }
+.label-yellow { background-color: #ffcc4d; }
+.label-blue   { background-color: #7eb4ff; }
+
+/* ==========================================================================
+   4. KEUANGAN SECTION (Stats Box)
+   ========================================================================== */
+.row-keuangan .keuangan-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.box-keuangan {
+    background: #f8fdff;
+    padding: 22px;
+    border-radius: 20px;
+    border: 1px solid #eef7ff;
+    transition: transform 0.2s ease;
+}
+
+.box-keuangan:hover {
+    transform: translateY(-4px);
+}
+
+/* ==========================================================================
+   5. CALENDAR STYLING (Inside Agenda Card)
+   ========================================================================== */
+
+/* Wrapper Sisi Kanan */
+.agenda-calendar-side {
+    width: 280px;
+    flex-shrink: 0; /* Mencegah kalender menyusut saat layar kecil */
+}
+
+/* Kotak Kalender */
+.calendar-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 16px;
+    border: 1px solid #f0f0f0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); /* Shadow lembut agar terlihat melayang */
+}
+
+/* Header Kalender (Bulan & Navigasi) */
+.cal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    padding: 0 4px;
+}
+
+.month-year {
+    font-size: 14px;
+    font-weight: 700;
+    color: #2c3e50;
+    text-transform: capitalize;
+}
+
+.nav-btn {
+    background: #f8f9fa;
+    border: none;
+    color: #95a5a6;
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    transition: all 0.2s;
+}
+
+.nav-btn:hover {
+    background: #e8f5e9;
+    color: #2e7d32;
+}
+
+/* Nama Hari */
+.cal-weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.cal-weekdays span {
+    font-size: 10px;
+    font-weight: 700;
+    color: #bdc3c7;
+    text-transform: uppercase;
+}
+
+/* Grid Tanggal */
+.cal-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+}
+
+.cal-date {
+    aspect-ratio: 1; /* Membuat kotak sempurna */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 600;
+    color: #4a5568;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.cal-date:hover:not(.date-yellow) {
+    background: #f1f8e9;
+    color: #2e7d32;
+}
+
+/* Highlight Hari Ini / Tanggal Terpilih */
+.date-yellow {
+    background: #ffcc4d; /* Warna kuning sesuai gambar referensi */
+    color: #fff !important;
+    box-shadow: 0 4px 10px rgba(255, 204, 77, 0.3);
+}
+
+/* Warna untuk status 'lainnya' atau default */
+.label-green-faded { 
+    background-color: #e8f5e9 !important; 
+    color: #2e7d32 !important; 
+    border: 1px solid #c8e6c9;
+}
+
+/* Penanda di kalender untuk status 'lainnya' */
+.date-green-faded { 
+    background-color: #e8f5e9 !important; 
+    color: #2e7d32 !important; 
+    border: 1px solid #c8e6c9;
+}
+/* Variasi warna lain jika dibutuhkan (seperti di gambar) */
+.date-green { background: #52a46d; color: #fff !important; }
+.date-blue { background: #7eb4ff; color: #fff !important; }
+
+/* Container Utama yang lebih ramping */
+.card-keuangan-wrapper {
+    background: #fff;
+    padding: 20px; /* Dikurangi dari 30px */
+    border-radius: 24px;
+    margin-top: 16px;
+}
+
+.card-header-simple {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.current-date-badge {
+    font-size: 12px;
+    color: #8e8e93;
+    font-weight: 500;
+}
+
+.keuangan-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px; /* Jarak antar card lebih rapat */
+}
+
+/* Card Keuangan Lebih Ramping */
+.keuangan-card {
+    background: #f8fbff; /* Biru sangat muda */
+    border-radius: 20px;
+    padding: 16px 20px; /* Padding lebih kecil */
+    border: 1px solid rgba(0, 123, 255, 0.05);
+    transition: all 0.2s ease;
+}
+
+/* Header di dalam Card */
+.card-header-finance {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.finance-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #636e72;
+}
+
+/* Google Icon Styling */
+.icon-box {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-box span {
+    font-size: 20px; /* Ukuran icon Google */
+}
+
+.bg-kas { background: #e0f2fe; color: #0369a1; }
+.bg-pemasukan { background: #dcfce7; color: #15803d; }
+.bg-pengeluaran { background: #fee2e2; color: #b91c1c; }
+
+/* Nominal Uang - Lebih proporsional */
+.finance-value {
+    font-size: 1.3rem; /* Ukuran teks lebih pas */
+    font-weight: 800;
+    color: #2d3436;
+    margin: 0;
+    letter-spacing: -0.5px;
+}
+
+.text-green { color: #2ecc71 !important; }
+.text-red { color: #e74c3c !important; }
+
+/* Responsive */
+@media (max-width: 992px) {
+    .keuangan-grid { grid-template-columns: 1fr; }
+}
+
+/* Container Utama yang lebih Slim */
+.card-seragam-wrapper {
+    background: #fff;
+    padding: 16px 20px; /* Diperkecil dari 20px 24px */
+    border-radius: 24px; /* Radius sedikit dikecilkan agar proporsional */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+}
+
+.card-header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4px;
+}
+
+.card-title-main {
+    font-size: 16px; /* Mengecilkan judul utama */
+    font-weight: 700;
+    color: #1a1a1a;
+}
+
+.badge-count {
+    background: #eef2ff;
+    color: #4f46e5;
+    font-size: 10px; /* Lebih kecil */
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 10px;
+}
+
+.section-subtitle {
+    font-size: 12px; /* Dari 13px ke 12px */
+    font-weight: 400;
+    color: #6b7280; /* Warna abu sedikit lebih lembut */
+    text-align: left; /* Berubah ke kiri agar lebih clean */
+    margin: 0 0 16px 0;
+}
+
+/* Header Tabel Sangat Ramping */
+.seragam-header-row {
+    display: flex;
+    padding: 0 12px 6px 12px;
+    font-size: 10px; /* Lebih kecil */
+    font-weight: 700;
+    color: #9ca3af;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.col-name { flex: 1; }
+.col-meta { width: 35px; text-align: center; } /* Lebar kolom dikecilkan */
+
+/* Item Row yang Lebih Ramping */
+.seragam-row-item {
+    background: #f9fbff;
+    padding: 8px 12px; /* Padding vertikal dipersempit dari 12px ke 8px */
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 6px; /* Jarak antar row dipersempit */
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+}
+
+.seragam-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+}
+
+.name-text {
+    font-size: 13px; /* Dari 14px ke 13px */
+    font-weight: 600;
+    color: #374151;
+}
+
+.location-text {
+    font-size: 10px; /* Lebih kecil */
+    color: #9ca3af;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+
+/* Badge Ukuran & Qty Tiny */
+.seragam-meta-group {
+    display: flex;
+    gap: 8px; /* Jarak antar badge dipersempit */
+}
+
+.badge-size-mini, .badge-qty-mini {
+    width: 24px; /* Dari 28px ke 24px */
+    height: 24px; /* Dari 28px ke 24px */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px; /* Dari 50% ke kotak tumpul agar lebih modern */
+    font-size: 9px; /* Lebih kecil */
+    font-weight: 800;
+}
+
+.badge-size-mini {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.badge-qty-mini {
+    background: #f3f4f6; /* Qty pakai warna netral agar tidak tabrakan dengan Ukuran */
+    color: #374151;
+}
+
+/* Card Pendaftaran Wrapper */
+.card-pendaftaran-wrapper {
+    background: #fff;
+    padding: 16px 20px;
+    border-radius: 24px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+}
+
+.badge-count-orange {
+    background: #fff7ed;
+    color: #ea580c;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 10px;
+}
+
+/* Item Row */
+.pendaftaran-row-item {
+    background: #fffaf5; /* Warna peach sangat muda */
+    padding: 10px 14px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+}
+.pendaftaran-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.pendaftaran-info .material-symbols-rounded {
+    font-size: 12px;
+    vertical-align: middle;
+}
+
+/* Contact Styling */
+.pendaftaran-contact {
+    text-align: right;
+}
+
+.contact-link {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    text-decoration: none;
+    background: #ffffff;
+    padding: 4px 10px;
+    border-radius: 8px;
+    border: 1px solid #f9731633;
+    color: #f97316;
+    transition: all 0.2s;
+}
+
+/* Container Kontak Statis (Read Only) */
+.contact-box-static {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: #fefce8; /* Kuning/Orange sangat pucat untuk indikasi 'pending' */
+    padding: 6px 12px;
+    border-radius: 10px;
+    color: #9a3412; /* Warna cokelat tua/orange gelap */
+    border: 1px solid #ffedd5;
+    user-select: none; /* Mencegah teks terpilih agar terasa lebih statis */
+}
+
+.contact-box-static .material-symbols-rounded {
+    font-size: 16px; /* Sedikit lebih besar agar icon call terlihat jelas */
+    color: #f97316;
+}
+
+.phone-text {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+/* Pastikan tidak ada efek hover yang tersisa dari selector sebelumnya */
+.pendaftaran-row-item:hover .contact-box-static {
+    transform: none;
+    background: #fefce8;
+    border-color: #ffedd5;
+}
+
+/* Container Card Anggota */
+.card-anggota-wrapper {
+    background: #fff;
+    padding: 16px 20px;
+    border-radius: 24px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Kotak Konten dengan Background Hijau Samar */
+.anggota-content-box {
+    background: #f0fdf4; /* Hijau sangat muda (mint soft) */
+    padding: 20px;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 12px;
+    border: 1px solid #dcfce7;
+}
+
+.info-label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #166534; /* Hijau tua untuk teks */
+    margin-bottom: 4px;
+}
+
+.total-number {
+    font-size: 32px; /* Angka dibuat besar */
+    font-weight: 800;
+    color: #14532d;
+    margin: 0;
+    letter-spacing: -1px;
+}
+
+/* Ikon Latar Belakang */
+.anggota-icon-bg {
+    width: 48px;
+    height: 48px;
+    background: #dcfce7;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.anggota-icon-bg .material-symbols-rounded {
+    font-size: 28px;
+    color: #15803d;
+}

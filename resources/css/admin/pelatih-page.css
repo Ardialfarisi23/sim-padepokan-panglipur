@@ -1,0 +1,300 @@
+/* --- Layout Utama Pelatih --- */
+.pg-pelatih-wrapper {
+    background-color: #e6ffdb; /* Hijau muda konsisten */
+    min-height: 100vh;
+}
+
+.pg-pelatih-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 7px;
+    color: #1a1a1a;
+}
+
+/* --- Action Bar & Search --- */
+.pg-pelatih-action-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.pg-pelatih-search-wrapper {
+    display: flex;
+    align-items: center;
+    background: #ffffff;
+    padding: 4px 12px;
+    border-radius: 50px;
+    width: 220px;
+    border: 1px solid #e2e8f0;
+}
+
+.pg-pelatih-search-wrapper span {
+    font-size: 16px;
+    color: #94a3b8;
+}
+
+.pg-pelatih-input-search {
+    border: none; 
+    outline: none; 
+    background: transparent;
+    font-size: 12px;
+    color: #475569; 
+    width: 100%;
+}
+
+/* --- Tombol Tambah & Filter --- */
+.action-btns-right {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.btn-tambah-pelatih {
+    display: flex; 
+    align-items: center; 
+    gap: 8px; /* Mengikuti referensi */
+    background: #22c55e; /* Tetap hijau */
+    color: white;
+    padding: 8px 20px; /* Mengikuti referensi */
+    border-radius: 50px; /* Mengikuti referensi */
+    border: none; /* Tanpa border karena warna background sudah solid */
+    font-size: 13px; /* Mengikuti referensi */
+    font-weight: 600; /* Mengikuti referensi */
+    cursor: pointer; 
+    transition: 0.3s ease;
+    box-shadow: 0 4px 6px -1px rgba(34, 197, 94, 0.2);
+}
+
+.btn-tambah-pelatih span {
+    font-size: 16px; /* Icon diperkecil */
+}
+
+.btn-tambah-pelatih:hover {
+    background: #16a34a;
+    box-shadow: 0 6px 10px -1px rgba(34, 197, 94, 0.3);
+}
+.pg-pelatih-btn-filter-toggle {
+    display: flex; align-items: center; gap: 8px;
+    background: #ffffff; border: 1px solid #e2e8f0;
+    padding: 8px 20px; border-radius: 50px;
+    font-size: 13px; font-weight: 600; color: #64748b;
+    cursor: pointer; transition: 0.3s ease;
+}
+
+.pg-pelatih-btn-filter-toggle span {
+    font-size: 16px; /* Icon diperkecil */
+}
+
+.pg-pelatih-btn-filter-toggle.active {
+    background: #22c55e;
+    color: white;
+    border-color: #16a34a;
+}
+
+
+/* --- Filter Panel Sliding --- */
+.pg-pelatih-filter-panel {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    background: white;
+    border-radius: 15px;
+}
+
+.pg-pelatih-filter-panel.active {
+    max-height: 150px; /* Ditambah dari 120px agar 3 filter muat */
+    opacity: 1;
+    padding: 15px 20px; /* Sedikit lebih longgar */
+    margin-bottom: 15px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.pg-pelatih-filter-grid {
+    display: flex;
+    gap: 25px;
+    align-items: flex-end; /* Supaya tombol reset sejajar dengan select */
+}
+
+/* Styling Grup Filter */
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.filter-group label {
+    font-size: 10px;
+    font-weight: 700;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.filter-group select {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    font-size: 12px;
+    color: #475569;
+    min-width: 150px;
+    background-color: #f8fafc;
+    cursor: pointer;
+    outline: none;
+}
+
+.filter-group select:focus {
+    border-color: #22c55e;
+}
+
+.btn-reset-filter {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: #ef4444;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+    padding-bottom: 10px; /* Penyesuaian agar sejajar dengan select */
+}
+/* --- Tabel Pelatih --- */
+.pg-pelatih-table-scroll-container {
+    background: white;
+    border-radius: 12px 12px 0 0;
+    overflow: auto;
+    border: 1px solid #e2e8f0;
+    max-height: 500px;
+}
+
+.pg-pelatih-table {
+    width: 100%; border-collapse: separate; border-spacing: 0; min-width: 1200px;
+}
+
+.pg-pelatih-table thead th {
+    position: sticky; top: 0; z-index: 10;
+    background-color: #f8fafc; padding: 15px 0px;
+    font-size: 11px; color: #64748b; text-align: center;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.pg-pelatih-table td {
+    padding: 12px; font-size: 11px; border-bottom: 1px solid #f1f5f9;
+}
+
+/* --- Badge & Status --- */
+.badge-tingkat {
+    padding: 4px 10px;
+    border-radius: 50px;
+    font-size: 10px;
+    font-weight: 700;
+    text-align: center;
+    display: inline-block;
+}
+.badge-tingkat.hitam { background: #1e293b; color: #f8fafc; }
+.badge-tingkat.merah { background: #fee2e2; color: #991b1b; }
+.badge-tingkat.hijau { background: #dcfce7; color: #166534; }
+
+/* --- Aksi Circle Buttons --- */
+.pg-pelatih-actions { display: flex; gap: 8px; justify-content: center; }
+.btn-action-circle {
+    width: 28px; height: 28px; border-radius: 50%; border: none;
+    display: flex; align-items: center; justify-content: center;
+    color: white; cursor: pointer; transition: 0.2s;
+}
+.btn-edit { background: #334155; }
+.btn-delete { background: #ef4444; }
+
+/* --- Modal & Form (Identik dengan Anggota) --- */
+.modal-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.5); display: none;
+    justify-content: center; align-items: center;
+    z-index: 9999; backdrop-filter: blur(4px);
+}
+.modal-overlay.active { display: flex; }
+
+.modal-container {
+    background: white; width: 95%; max-width: 600px;
+    border-radius: 24px; padding: 25px 30px;
+    position: relative; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+.form-group.full-width { grid-column: span 2; }
+.form-group label { font-size: 9px; font-weight: 600; color: #64748b; margin-bottom: 1px; }
+.form-group input, .form-group select, .form-group textarea {
+    padding: 10px 14px; background: #f8fafc; border: 1px solid #e2e8f0;
+    border-radius: 10px; font-size: 12px; outline: none;
+}
+
+/* --- Pagination Area --- */
+.pg-pelatih-pagination-area {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 15px 20px; background: white;
+    border: 1px solid #e2e8f0; border-top: none;
+    border-radius: 0 0 12px 12px;
+}
+
+/* --- Custom SweetAlert Style --- */
+.swal-popup-rounded {
+    border-radius: 24px !important;
+    padding: 30px !important;
+}
+
+.swal-title-custom {
+    font-size: 20px !important;
+    font-weight: 700 !important;
+    color: #1e293b !important;
+}
+
+.swal-text-custom {
+    font-size: 14px !important;
+    color: #64748b !important;
+}
+
+.swal-buttons-gap {
+    gap: 12px !important;
+    margin-top: 20px !important;
+}
+
+.swal-btn-confirm {
+    background-color: #ef4444 !important;
+    color: white !important;
+    padding: 10px 24px !important;
+    border-radius: 50px !important;
+    font-weight: 600 !important;
+    font-size: 13px !important;
+    border: none !important;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.swal-btn-confirm:hover {
+    background-color: #dc2626 !important;
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+}
+
+.swal-btn-cancel {
+    background-color: #f1f5f9 !important;
+    color: #64748b !important;
+    padding: 10px 24px !important;
+    border-radius: 50px !important;
+    font-weight: 600 !important;
+    font-size: 13px !important;
+    border: 3px solid #faa2a2 !important;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.swal-btn-cancel:hover {
+    background-color: #e2e8f0 !important;
+    color: #1e293b !important;
+}

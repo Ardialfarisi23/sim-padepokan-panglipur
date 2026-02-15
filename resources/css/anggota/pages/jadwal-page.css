@@ -1,0 +1,486 @@
+/* ==========================================================================
+   LAYOUT UTAMA
+   ========================================================================== */
+.pg-jadwal-wrapper {
+    min-height: 100vh;
+    padding: 12px;
+    box-sizing: border-box;
+}
+
+
+
+.pg-jadwal-title {
+    font-size: 18px;
+    font-weight: 800;
+    margin-bottom: 25px;
+    color: #1e293b;
+    letter-spacing: -0.5px;
+}
+
+.jadwal-main-grid {
+    display: grid;
+    grid-template-columns: 1fr 380px; /* Desktop: List Kiri, Kalender Kanan */
+    gap: 15px;
+    align-items: start;
+}
+
+/* Base Card Styling */
+.jadwal-list-section, 
+.calendar-card-main {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* ==========================================================================
+   DAFTAR AGENDA (KIRI)
+   ========================================================================== */
+.list-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+    color: #16a34a;
+}
+
+.list-header h4 { 
+    font-size: 14px; 
+    font-weight: 700; 
+    color: #1e293b;
+    margin: 0;
+}
+
+.agenda-scroll-area {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-height: 500px;
+    overflow-y: auto;
+    padding-right: 8px;
+}
+
+/* Item Box */
+.agenda-item-box {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px;
+    background: #ffffff;
+    border-radius: 10px;
+    border: 1px solid #f1f5f9;
+    border-left: 4px solid #e2e8f0; /* Default Border */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+/* Badge Tanggal */
+.agenda-date-badge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 45px;
+    height: 45px;
+    border-radius: 8px;
+    background: #f1f5f9;
+    flex-shrink: 0;
+}
+
+.agenda-date-badge .day { font-size: 16px; font-weight: 800; color: #1e293b; line-height: 1; }
+.agenda-date-badge .month { font-size: 9px; font-weight: 700; text-transform: uppercase; color: #64748b; margin-top: 2px; }
+
+/* Info Area */
+.agenda-info {
+    flex: 1;
+    min-width: 0; /* Memberi ruang agar teks bisa memotong jika terlalu panjang */
+    display: flex;
+    flex-direction: column;
+}
+
+.agenda-title {
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.agenda-meta-detail {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+
+
+.meta-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    color: #64748b;
+    width: 100%;
+}
+
+.meta-row span:last-child {
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block; /* Pastikan ini bukan 'none' */
+}
+
+.meta-row span.material-symbols-rounded {
+    font-size: 14px;
+    color: #16a34a;
+    flex-shrink: 0; /* Icon tidak boleh gepeng */
+}
+
+.keterangan-text span:last-child {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+}
+
+/* Right Status */
+.agenda-status-right {
+    flex-shrink: 0;
+    margin-left: auto;
+    padding-left: 10px;
+}
+
+.status-tag {
+    display: inline-block;
+    font-size: 9px;
+    font-weight: 800;
+    padding: 2px 8px;
+    border-radius: 20px;
+    text-transform: uppercase;
+}
+
+/* ==========================================================================
+   KALENDER (KANAN)
+   ========================================================================== */
+.cal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.month-year { font-weight: 800; color: #1e293b; font-size: 17px; }
+
+.nav-btn {
+    background: #f1f5f9; border: none; width: 36px; height: 36px;
+    border-radius: 6px; cursor: pointer; font-size: 12px; color: #475569;
+}
+
+.nav-btn:hover { background: #16a34a; color: white; }
+
+.cal-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+    width: 100%;
+}
+
+.cal-date {
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    border-radius: 6px;
+    color: #475569;
+}
+
+/* ==========================================================================
+   COLORS & STATUS MAPPING
+   ========================================================================== */
+.tag-latihan, .tag-green, .date-green, .border-green { background: #dcfce7 !important; color: #15803d !important; border-color: #22c55e !important; }
+.tag-nasional, .tag-blue, .date-blue, .border-blue { background: #dbeafe !important; color: #1d4ed8 !important; border-color: #3b82f6 !important; }
+.tag-internasional, .tag-yellow, .date-yellow, .border-yellow { background: #fef9c3 !important; color: #a16207 !important; border-color: #facc15 !important; }
+
+/* ==========================================================================
+   MOBILE RESPONSIVE (MAX-WIDTH: 1024px & 640px)
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+    .jadwal-main-grid {
+        grid-template-columns: 1fr;
+    }
+    .calendar-card-main {
+        order: -1; /* Kalender di atas pada tablet/HP */
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 640px) {
+    .pg-jadwal-wrapper { padding: 10px; }
+    .pg-jadwal-title { font-size: 16px; text-align: center; }
+
+    /* Card adjustments */
+    .jadwal-list-section, .calendar-card-main {
+        padding: 15px;
+        border-radius: 18px;
+    }
+
+    /* Agenda Item Box Mobile */
+    .agenda-item-box {
+        height: auto !important; 
+        align-items: flex-start !important; /* Ikon & Tanggal tetap di atas */
+        padding: 12px !important;
+    }
+
+    .meta-row .text-content {
+        white-space: normal !important; /* Izinkan teks turun ke bawah */
+        word-break: break-word;
+        line-height: 1.4;
+    }
+
+    .agenda-date-badge {
+        min-width: 40px;
+        height: 40px;
+        border-radius: 10px;
+    }
+    .agenda-date-badge .day { font-size: 16px; }
+    .agenda-date-badge .month { font-size: 9px; }
+
+    .agenda-title {
+        white-space: normal !important; /* Batalkan pemotongan satu baris */
+        display: -webkit-box;
+        -webkit-line-clamp: 2; /* Maksimal 2 baris saja agar tidak terlalu panjang */
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        line-height: 1.3;
+        font-size: 13px !important;
+    }
+    
+    .status-tag {
+        font-size: 8px;
+        padding: 2px 8px;
+    }
+
+    .cal-date { font-size: 11px; }
+}
+
+/* Scrollbar */
+.agenda-scroll-area::-webkit-scrollbar { width: 3px; }
+.agenda-scroll-area::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 10px; }
+
+/* --- REDESIGN MODAL V2 --- */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.4);
+    backdrop-filter: blur(8px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    padding: 20px;
+}
+
+.modal-content-v2 {
+    background: #ffffff;
+    width: 100%;
+    max-width: 450px;
+    border-radius: 32px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+    position: relative;
+    overflow: hidden;
+    animation: modalSpring 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes modalSpring {
+    from { transform: scale(0.9) translateY(40px); opacity: 0; }
+    to { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+.modal-accent-bar {
+    height: 8px;
+    width: 100%;
+    background: #16a34a; /* Default */
+}
+
+.modal-close-v2 {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    width: 36px;
+    height: 36px;
+    border-radius: 12px;
+    border: none;
+    background: #f8fafc;
+    color: #64748b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.2s;
+    z-index: 10;
+}
+
+.modal-close-v2:hover { background: #ef4444; color: white; }
+
+.modal-body-v2 { padding: 40px 30px 20px 30px; }
+
+.modal-header-section { text-align: center; margin-bottom: 30px; }
+
+.status-badge-v2 {
+    padding: 6px 16px;
+    border-radius: 100px;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: inline-block;
+    margin-bottom: 12px;
+}
+
+.modal-title-v2 {
+    font-size: 24px;
+    font-weight: 800;
+    color: #0f172a;
+    line-height: 1.2;
+    margin-bottom: 8px;
+}
+
+.modal-date-v2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    color: #64748b;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.modal-date-v2 span.material-symbols-rounded { font-size: 18px; }
+
+/* Info Card Style */
+.info-card-grid { display: flex; flex-direction: column; gap: 12px; }
+
+.info-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px;
+    background: #f8fafc;
+    border-radius: 20px;
+    border: 1px solid #f1f5f9;
+}
+
+.description-card { align-items: flex-start; }
+
+.icon-circle {
+    width: 40px;
+    height: 40px;
+    background: white;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+    flex-shrink: 0;
+}
+
+.icon-circle span { color: #16a34a; font-size: 20px; }
+
+.info-content label {
+    display: block;
+    font-size: 10px;
+    font-weight: 700;
+    color: #94a3b8;
+    text-transform: uppercase;
+    margin-bottom: 2px;
+}
+
+.info-content p {
+    font-size: 14px;
+    color: #334155;
+    font-weight: 600;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.modal-footer-v2 { padding: 0 30px 30px 30px; }
+
+.btn-done-v2 {
+    width: 100%;
+    padding: 16px;
+    border: none;
+    background: #0f172a; /* Warna gelap agar kontras */
+    color: white;
+    font-weight: 700;
+    border-radius: 18px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-done-v2:hover { background: #1e293b; transform: translateY(-2px); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); }
+
+/* --- RESPONSIVE FIX UNTUK MODAL --- */
+@media (max-width: 480px) {
+    .modal-content-v2 {
+        max-width: 95%; /* Modal lebih lebar di HP agar tidak sesak */
+        border-radius: 24px;
+    }
+
+    .modal-body-v2 {
+        padding: 30px 20px 15px 20px; /* Kurangi padding samping */
+    }
+
+    /* Posisikan ulang tombol X agar tidak menabrak judul yang panjang */
+    .modal-close-v2 {
+        top: 15px;
+        right: 15px;
+        width: 30px;
+        height: 30px;
+    }
+
+    .modal-title-v2 {
+        font-size: 18px; /* Judul lebih kecil di HP */
+        padding: 0 10px; /* Beri ruang agar tidak kena tombol X */
+        margin-top: 10px;
+    }
+
+    /* Buat Info Card lebih rapat */
+    .info-card {
+        padding: 12px;
+        gap: 12px;
+    }
+
+    .icon-circle {
+        width: 32px;
+        height: 32px;
+    }
+
+    .icon-circle span {
+        font-size: 18px;
+    }
+
+    .info-content p {
+        font-size: 13px;
+    }
+
+    /* Tombol Selesai agar lebih pas di jempol */
+    .modal-footer-v2 {
+        padding: 0 20px 20px 20px;
+    }
+
+    .btn-done-v2 {
+        padding: 12px;
+        font-size: 14px;
+        border-radius: 12px;
+    }
+}

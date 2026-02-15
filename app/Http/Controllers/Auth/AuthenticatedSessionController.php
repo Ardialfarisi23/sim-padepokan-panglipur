@@ -1,0 +1,72 @@
+<?php
+
+
+namespace App\Http\Controllers\Auth;
+
+
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Auth\LoginRequest;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\View\View;
+
+
+class AuthenticatedSessionController extends Controller
+{
+    /**
+     * Display the login view.
+     */
+    public function create(): View
+    {
+        return view('auth.login');
+    }
+
+
+    /**
+     * Handle an incoming authentication request.
+     */
+    public function store(LoginRequest $request): RedirectResponse
+    {
+        $request->authenticate();
+        $request->session()->regenerate();
+
+
+        $user = auth()->user();
+
+
+        // ===== REDIRECT BERDASARKAN ROLE =====
+        if ($user->role === 'admin') {
+            return redirect('/admin/dashboard');
+        }
+
+
+        if ($user->role === 'anggota') {
+            return redirect('/anggota/dashboard');
+        }
+
+
+        // Jika role tidak dikenali
+        Auth::logout();
+
+
+        return redirect('/login')->withErrors([
+            'email' => 'Role tidak dikenali.',
+        ]);
+    }
+
+
+    /**
+     * Destroy an authenticated session.
+     */
+    public function destroy(): RedirectResponse
+    {
+        Auth::logout();
+
+
+        request()->session()->invalidate();
+        request()->session()->regenerateToken();
+
+
+        return redirect('/');
+    }
+}

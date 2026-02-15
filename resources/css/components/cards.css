@@ -1,0 +1,19 @@
+/* INFORMASI CARD (GLOBAL SHARED STYLE) */
+.info-title {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+
+.info-desc {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+
+/* PRESTASI CARD */
+.prestasi-card {
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+}

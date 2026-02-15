@@ -1,0 +1,147 @@
+/* =========================
+   PENDAFTARAN SECTION
+========================= */
+
+
+.pendaftaran-section {
+    margin-bottom: 80px;
+}
+
+
+.pendaftaran-box {
+    max-width: 1188px; /* sesuai spek desain kamu */
+    margin: 0 auto; /* CENTER */
+    min-height: 250px;
+
+
+    background: linear-gradient(90deg, #134611 0%, #3e8914 100%);
+
+
+    border-radius: 20px;
+    padding: 48px 32px;
+    position: relative;
+    overflow: visible;
+    margin-top: 100px;
+    margin-bottom: -60px;
+}
+
+
+/* Konten tengah */
+.pendaftaran-content {
+    max-width: 600px;
+    margin: 0 auto;
+    color: #ffffff;
+    position: relative;
+    z-index: 2;
+}
+
+
+.pendaftaran-title {
+    font-weight: 700;
+    font-size: 1.8rem;
+}
+
+
+.pendaftaran-desc {
+    font-size: 0.95rem;
+    opacity: 0.9;
+    line-height: 1.6;
+}
+
+
+/* Foto kiri & kanan */
+.pendaftaran-img {
+    position: absolute;
+    width: 200px;
+    height: 340px;
+
+
+    object-fit: cover;
+    object-position: center top;
+
+
+    top: -70px; /* KEPALA & LEHER KELUAR */
+    bottom: 0;
+
+
+    z-index: 1;
+}
+
+
+.pendaftaran-img.left {
+    left: 24px;
+    top: -115px; /* KEPALA & LEHER KELUAR BOX */
+}
+
+
+.pendaftaran-img.right {
+    right: 24px;
+    top: -115px;
+}
+
+
+/* Foto keluar dari box (timbul) */
+.pendaftaran-img {
+    position: absolute;
+    bottom: 0;
+    width: 220px;
+    height: 360px;
+    object-fit: cover;
+    object-position: center top; /* FOKUS KE KEPALA */
+    z-index: 1;
+}
+
+
+/* =========================
+   ANIMATED BUTTON - YELLOW
+========================= */
+.animated-button--yellow {
+    background-color: #ffbb00;
+    color: #ffffff;
+    box-shadow: 0 0 0 2px #ffbb00;
+}
+
+
+.animated-button--yellow svg {
+    fill: #ffffff;
+}
+
+
+.animated-button--yellow .circle {
+    background-color: #ffbb00;
+}
+
+
+.animated-button--yellow:hover {
+    color: #ffffff;
+}
+
+
+.animated-button--yellow:hover svg {
+    fill: #ffffff;
+}
+
+
+@media (max-width: 768px) {
+    .pendaftaran-img {
+        display: none;
+    }
+
+
+    .pendaftaran-box {
+        padding: 40px 20px;
+    }
+
+
+    .pendaftaran-title {
+        font-size: 1.4rem;
+    }
+}
+
+
+/* Button wrapper */
+.pendaftaran-btn-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 32px;
+}

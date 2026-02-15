@@ -1,0 +1,80 @@
+body {
+    background-color: #f8fafc;
+    margin: 0;
+}
+
+.anggota-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.anggota-layout {
+    display: flex;
+    margin-top: 64px; /* Samakan dengan tinggi Topbar (64px) */
+    min-height: calc(100vh - 64px);
+}
+
+.anggota-content {
+    flex: 1;
+    margin-left: 240px; /* Lebar Sidebar */
+    padding: 24px;      /* Padding standar, jangan terlalu besar */
+    transition: all 0.3s ease;
+}
+
+/* Untuk Tablet & HP agar Content jadi Full */
+@media screen and (max-width: 992px) {
+    .anggota-sidebar {
+        transform: translateX(-100%);
+    }
+    .anggota-content {
+        margin-left: 0;
+        padding: 16px; /* Padding lebih kecil di HP agar hemat ruang */
+    }
+}
+
+/* Sembunyikan tombol hamburger di Desktop */
+.hamburger-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 5px;
+    margin-right: 10px;
+}
+
+/* RESPONSIVE RULES (Tablet & HP) */
+@media screen and (max-width: 992px) {
+    .hamburger-btn {
+        display: block; /* Munculkan di HP */
+    }
+
+    .anggota-sidebar {
+        /* Hapus transform: translateX(-100%) */
+        transform: none !important; 
+        left: -240px; /* Sembunyikan pake left */
+        transition: all 0.3s ease-in-out;
+    }
+
+    .anggota-sidebar.show {
+        left: 0 !important;
+        transform: none !important;
+    }
+
+    .anggota-content {
+        margin-left: 0;
+    }
+    
+    /* Overlay hitam saat sidebar muncul (opsional) */
+    .sidebar-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.5);
+        z-index: 998;
+        display: none;
+    }
+    
+    .sidebar-overlay.active {
+        display: block;
+    }
+}

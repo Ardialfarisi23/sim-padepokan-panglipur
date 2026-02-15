@@ -1,0 +1,240 @@
+/* FOOTER */
+.footer-lp {
+    background: linear-gradient(135deg, #0b3d1e, #021b0f);
+    margin-top: 100px;
+}
+
+
+/* Text */
+.text-footer {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+
+/* Divider */
+.footer-divider {
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+
+/* Navigasi */
+.footer-nav li {
+    margin-bottom: 8px;
+}
+
+
+.footer-nav a {
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+
+.footer-nav a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    left: 0;
+    bottom: -4px;
+    background-color: #facc15;
+    transition: width 0.3s ease;
+}
+
+
+.footer-nav a:hover {
+    color: #facc15;
+}
+
+
+.footer-nav a:hover::after {
+    width: 100%;
+}
+
+
+.social-icons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 15px;
+    transition: transform 0.3s ease;
+}
+
+
+.social-icons img {
+    width: 28px;
+    height: 28px;
+    filter: brightness(0) invert(1);
+    transition: all 0.3s ease;
+}
+
+
+/* Hover effect */
+.social-icons a:hover img {
+    transform: translateY(-4px) scale(1.15);
+    filter: brightness(1) sepia(1) hue-rotate(20deg) saturate(3);
+}
+
+
+.footer-social {
+    gap: 12px;
+}
+
+
+/* Base */
+.social-btn {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    overflow: hidden;
+    transition: transform 0.15s ease;
+}
+
+
+/* SVG */
+.social-btn svg {
+    width: 26px;
+    height: 26px;
+    color: white;
+    z-index: 2;
+}
+
+
+/* Click effect */
+.social-btn:active {
+    transform: scale(0.85);
+}
+
+
+/* Dark circle */
+.social-btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: transparent;
+    z-index: 1;
+    transition: transform 0.4s ease;
+}
+
+
+/* Hover animation */
+.social-btn:hover::before {
+    transform: scale(0);
+    width: 0;
+    height: 0;
+    inset: 50%;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+
+/* ===== BRAND COLORS ===== */
+.social-btn.ig {
+    background: linear-gradient(120deg, #833ab4, #fd1d1d, #fcb045);
+}
+
+
+.social-btn.wa {
+    background: linear-gradient(120deg, #02ff2c, #008a12);
+}
+
+
+.social-btn.tw {
+    background: #1da1f2;
+}
+
+
+.social-btn.yt {
+    background: #ff0000;
+}
+
+
+.social-btn.gh {
+    background: #000;
+}
+
+
+.footer-social {
+    gap: 12px;
+}
+
+
+/* Button Base */
+.social-btn {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition: transform 0.15s ease;
+    text-decoration: none;
+}
+
+
+/* PNG Icon */
+.social-btn img {
+    width: 26px;
+    height: 26px;
+    z-index: 2;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+
+/* Click effect */
+.social-btn:active {
+    transform: scale(0.85);
+}
+
+
+/* Dark overlay */
+.social-btn::before {
+    content: "";
+    position: absolute;
+    inset: -3px;
+    background: #1a1a1a;
+    border-radius: 50%;
+    z-index: 1;
+    transition: all 0.4s ease;
+}
+
+
+/* Hover animation */
+.social-btn:hover::before {
+    inset: 50%;
+}
+
+
+/* Slight icon lift */
+.social-btn:hover img {
+    transform: scale(1.15);
+}
+
+
+/* Brand Colors */
+.social-btn.ig {
+    background: linear-gradient(120deg, #833ab4, #fd1d1d, #fcb045);
+}
+
+
+.social-btn.wa {
+    background: linear-gradient(120deg, #02ff2c, #008a12);
+}
+
+
+.social-btn.tt {
+    background: #000;
+}
+
+
+.social-btn.fb {
+    background: #1877f2;
+}

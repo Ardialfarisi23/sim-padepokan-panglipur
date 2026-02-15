@@ -1,0 +1,510 @@
+/* ==========================================================================
+   BAGIAN 1: HALAMAN UTAMA (LIST & TABEL)
+   ========================================================================== */
+.pg-pelatih-wrapper {
+    background-color: #f8fafc; /* Diubah dari hijau pudar ke netral agar konten lebih menonjol */
+    min-height: 100vh;
+    padding: 5px;
+}
+
+.pg-pelatih-title {
+    font-size: 24px;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 20px;
+}
+
+/* --- STYLING SELECT TINGKAT (POIN REVISI 2) --- */
+.pg-pelatih-select-wrapper {
+    position: relative;
+    display: inline-block;
+    min-width: 180px;
+}
+
+.pg-pelatih-select-belt {
+    width: 100%;
+    height: 42px;
+    appearance: none;
+    -webkit-appearance: none;
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 0 40px 0 16px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #334155;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.pg-pelatih-select-belt:hover { border-color: #cbd5e1; background-color: #f8fafc; }
+.pg-pelatih-select-belt:focus { outline: none; border-color: #3b82f6; box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1); }
+
+.select-arrow {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: #64748b;
+    font-size: 20px;
+}
+
+/* --- BADGE STATUS & TINGKAT --- */
+.status-badge {
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    display: inline-block;
+}
+.status-lulus { background-color: #dcfce7; color: #15803d; }
+.status-tidak { background-color: #fee2e2; color: #b91c1c; }
+.status-belum { background-color: #e0f2fe; color: #0369a1; }
+
+.badge-tingkat {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 12px; /* Sesuaikan agar sama dengan badge tingkat saat ini */
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: capitalize;
+    min-width: 80px; /* Memberikan lebar minimal agar badge seragam */
+    line-height: 1;
+}
+
+.text-center .badge-tingkat {
+    margin: 0;
+}
+.badge-tingkat.putih { background: #f1f5f9; color: #475569; border: 1px solid #e2e8f0; }
+.badge-tingkat.kuning { background: #fef9c3; color: #854d0e; }
+.badge-tingkat.hijau { background: #dcfce7; color: #166534; }
+.badge-tingkat.merah { background: #fee2e2; color: #991b1b; }
+.badge-tingkat.hitam { background: #1e293b; color: #ffffff; }
+
+/* --- TABEL --- */
+.pg-pelatih-table-scroll-container {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+.pg-pelatih-table { width: 100%; border-collapse: separate; border-spacing: 0; }
+.pg-pelatih-table thead th {
+    background-color: #f8fafc;
+    padding: 15px;
+    font-size: 11px;
+    color: #64748b;
+    text-align: center;
+    border-bottom: 1px solid #e2e8f0;
+    letter-spacing: 0.05em;
+}
+
+/* ==========================================================================
+   BAGIAN 2: MODAL PENILAIAN (DYNAMIC UI)
+   ========================================================================== */
+
+.modal-body {
+    overflow-y: auto;
+    max-height: calc(95vh - 200px); /* Memastikan body bisa scroll jika layar kecil */
+}
+
+.custom-modal-content {
+    border-radius: 20px;
+    border: none;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    max-height: 95vh;
+}
+
+
+
+/* Header & Meta */
+.custom-modal-header {
+    background: #ffffff;
+    padding: 25px 35px;
+    border-bottom: 1px solid #f1f5f9;
+    font-size: 18px;
+}
+
+.modal-footer.border-0 {
+    padding: 20px 35px 30px 35px !important; /* Memberi ruang lebih di bawah */
+    background: #ffffff;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+}
+
+.badge-input-title {
+    background: #f1f5f9;
+    color: #64748b;
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 10px;
+    font-weight: 800;
+}
+
+.participant-name {
+    font-size: 18px;
+    font-weight: 900;
+    color: #0f172a;
+    letter-spacing: -0.5px;
+}
+
+.header-meta-grid {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 4px;
+}
+
+.meta-item {
+    font-size: 12px;
+    color: #94a3b8;
+}
+
+/* Form Sisi Kiri */
+.section-title {
+    font-size: 11px;
+    font-weight: 800;
+    color: #334155;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.input-score-group{
+    margin-bottom: 10px;
+}
+.input-score-group label {
+    font-size: 10px;
+    font-weight: 700;
+    color: #94a3b8;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.input-nilai {
+    background: #f8fafc !important;
+    border: 2px solid #e2e8f0 !important;
+    border-radius: 10px !important;
+    padding: 8px 12px !important;
+    font-weight: 800 !important;
+    font-size: 14px !important;
+    transition: 0.2s;
+}
+
+.input-nilai:focus {
+    border-color: #22c55e !important;
+    background: white !important;
+    box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.1) !important;
+}
+
+/* Card Sisi Kanan (Dynamic Backgrounds) */
+.result-card-dynamic {
+    border-radius: 18px;
+    padding: 15px;
+    height: 100%;
+    transition: all 0.5s ease; /* Transisi warna halus */
+}
+
+/* State Lulus: Hijau Pudar */
+.result-card-dynamic.bg-lulus {
+    background-color: #f0fdf4; 
+    border: 2px solid #bbf7d0;
+}
+
+/* State Tidak Lulus: Merah Pudar */
+.result-card-dynamic.bg-tidak {
+    background-color: #fef2f2;
+    border: 2px solid #fecaca;
+}
+
+.total-score-wrapper {
+    text-align: center;
+    padding: 10px;
+}
+
+.total-score-wrapper .label {
+    font-size: 11px;
+    font-weight: 800;
+    color: #64748b;
+    letter-spacing: 1px;
+}
+
+.input-total-nilai {
+    background: transparent;
+    border: none;
+    font-size: 48px;
+    font-weight: 950;
+    width: 100%;
+    text-align: center;
+    color: #1e293b;
+    outline: none;
+    line-height: 1;
+}
+
+/* Read-Only Box Styles */
+.readonly-value-box {
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    padding: 6px 12px;
+}
+
+.input-min-nilai {
+    background: transparent;
+    border: none;
+    font-weight: 800;
+    color: #334155;
+    width: 100%;
+    outline: none;
+}
+
+.input-status-display {
+    width: 100%;
+    padding: 10px;
+    border-radius: 12px;
+    border: none;
+    font-size: 13px;
+    font-weight: 900;
+    text-align: center;
+    background: white;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+    margin-top: 10px;
+}
+
+/* Footer Buttons */
+.btn-cancel-link {
+    background: none;
+    border: none;
+    color: #94a3b8;
+    font-weight: 700;
+    margin-right: 15px; /* Dikurangi dari 20px */
+    font-size: 13px;    /* Dikurangi dari 14px */
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn-save-final {
+    background: #22c55e;
+    color: white;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: 0.3s;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
+}
+
+.btn-save-final:hover {
+    background: #1e293b;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(15, 23, 42, 0.25);
+}
+
+.btn-close-custom {
+    background: #f8fafc;
+    border: none;
+    border-radius: 10px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #94a3b8;
+}
+
+/* Container pembungkus agar ikon bisa diposisikan absolut */
+.pg-pelatih-select-wrapper {
+    position: relative;
+    min-width: 180px;
+}
+
+.pg-pelatih-select-belt {
+    width: 100%;
+    appearance: none; /* Menghilangkan panah default browser */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 10px 40px 10px 16px; /* Padding kanan dilebihkan untuk ikon */
+    
+    font-size: 14px;
+    font-weight: 600;
+    color: #475569;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Efek Hover & Focus */
+.pg-pelatih-select-belt:hover {
+    border-color: #cbd5e1;
+    background-color: #f8fafc;
+}
+
+.pg-pelatih-select-belt:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+}
+
+/* Ikon Panah Custom */
+.select-icon {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none; /* Agar klik tembus ke select */
+    color: #64748b;
+    font-size: 20px;
+}
+
+/* Container Utama Select */
+.pg-pelatih-select-wrapper {
+    position: relative;
+    display: inline-block;
+    min-width: 160px;
+}
+
+/* Styling Elemen Select */
+.pg-pelatih-select-belt {
+    width: 100%;
+    height: 42px; /* Menyamakan tinggi dengan tombol filter */
+    padding: 0 40px 0 16px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #334155;
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    cursor: pointer;
+    appearance: none; /* Menghilangkan panah bawaan browser */
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Efek saat Hover */
+.pg-pelatih-select-belt:hover {
+    border-color: #cbd5e1;
+    background-color: #f8fafc;
+}
+
+/* Efek saat Klik/Focus */
+.pg-pelatih-select-belt:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Ikon Panah Custom di sisi kanan */
+.select-arrow {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none; /* Klik tembus ke select di bawahnya */
+    color: #64748b;
+    font-size: 20px;
+}
+
+/* Styling dropdown list (hanya bekerja di beberapa browser) */
+.pg-pelatih-select-belt option {
+    font-weight: 500;
+    padding: 10px;
+}
+
+.btn-edit-mode { background-color: #2563eb; color: #2563eb; }
+.btn-edit-mode:hover { background-color: #2563eb; color: #fff; }
+
+/* Warna spesifik untuk tombol Tambah (Gelap/Hijau) */
+.btn-add-mode { background-color: #0f172a; color: #0f172a; }
+.btn-add-mode:hover { background-color: #0f172a; color: #fff; }
+
+.btn-action-circle .material-symbols-rounded { font-size: 20px; }
+
+.btn-action-circle {
+    width: 38px; height: 38px; border-radius: 50%; border: none;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.3s ease; cursor: pointer;
+    border-color: #15803d;
+}
+
+.btn-action-circle:hover { 
+    transform: scale(1.1) rotate(5deg); 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
+}
+
+/* Tambahkan ini di ujian-page.css jika select terlihat aneh */
+select.input-nilai {
+    appearance: auto;
+    background-image: none;
+    cursor: pointer;
+}
+
+/* Timeline Styling */
+.bg-light-timeline { background-color: #f8fafc; border-radius: 0 0 12px 0; }
+.timeline-container { position: relative; padding-left: 20px; border-left: 2px dashed #e2e8f0; margin-left: 10px; }
+.timeline-item { position: relative; margin-bottom: 25px; padding-left: 15px; }
+.timeline-dot { 
+    position: absolute; left: -27px; top: 5px; width: 12px; height: 12px; 
+    border-radius: 50%; border: 2px solid white; box-shadow: 0 0 0 2px #e2e8f0;
+}
+.timeline-dot.lulus { background-color: #10b981; box-shadow: 0 0 0 2px #10b981; }
+.timeline-dot.tidak { background-color: #ef4444; box-shadow: 0 0 0 2px #ef4444; }
+.tl-belt { font-weight: 800; font-size: 13px; }
+.tl-date { font-size: 11px; color: #94a3b8; }
+.tl-status { font-size: 11px; font-weight: 700; margin-top: 2px; }
+
+/* Skeleton Loading Animation */
+.skeleton {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+    border-radius: 4px;
+    color: transparent !important;
+}
+@keyframes loading {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/* Transparansi input total di modal */
+.input-total-transparent {
+    border: none; background: transparent; font-size: 24px; font-weight: 800;
+    text-align: center; width: 100%; outline: none; color: #1e293b;
+}
+
+.result-summary-box {
+    border-radius: 12px;
+    transition: all 0.3s ease; /* Biar perubahan warna halus */
+    border: 2px solid #e2e8f0;
+    background-color: #ffffff;
+}
+
+.input-total-transparent {
+    border: none;
+    background: transparent;
+    font-size: 28px;
+    font-weight: 800;
+    color: #1e293b;
+    width: 100%;
+    text-align: center;
+    outline: none;
+}
+

@@ -1,0 +1,11 @@
+.informasi-section {
+    background: #f9fafb;
+    padding: 80px 0;
+}
+
+
+.informasi-card {
+    display: flex;
+    background: #fff;
+    border-radius: 16px;
+}

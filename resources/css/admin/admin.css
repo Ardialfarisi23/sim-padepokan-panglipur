@@ -1,0 +1,35 @@
+/* resources/css/admin/admin.css */
+
+/* =========================
+   BASE (Sesuaikan dengan list folder Anda)
+========================= */
+@import './base/reset.css';
+@import './base/typography.css';
+@import './base/global.css';    /* Anda bilang file ini ada */
+@import './base/utilities.css'; /* Anda bilang file ini ada */
+
+/* Hapus atau beri komentar pada baris ini jika file 'variable.css' memang tidak ada */
+/* @import './base/variable.css'; */ 
+
+/* =========================
+   LAYOUT
+========================= */
+@import './layout/layout.css';
+@import './layout/sidebar.css';
+@import './layout/topbar.css';
+@import './layout/footer.css';
+
+/* =========================
+   COMPONENTS
+========================= */
+@import './components/dropdown.css';
+@import './components/modal.css';
+
+/* =========================
+   PAGES
+========================= */
+@import './pages/dashboard/dashboard-main.css';
+
+
+/* CATATAN: Jangan panggil anggota.css, keuangan.css, dll 
+   jika filenya belum Anda buat di folder pages/dashboard/ */

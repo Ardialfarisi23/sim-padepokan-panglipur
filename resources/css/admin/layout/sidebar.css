@@ -1,0 +1,44 @@
+/* =========================
+    SIDEBAR
+========================= */
+.admin-sidebar {
+    width: 240px; 
+    padding: 16px 12px;
+    position: fixed;
+    top: 64px;          
+    left: 0;
+    bottom: 0;          
+    overflow-y: hidden; 
+    border-right: 1px solid #d2eec0;
+    transition: all 0.3s ease;
+    z-index: 999; /* Pastikan di atas konten dashboard */
+}
+
+.sidebar-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px; 
+    color: #134611 !important; /* Gunakan important jika warna tetap tidak berubah */
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 13.5px; 
+    font-weight: 500;
+    transition: background 0.2s ease, color 0.2s ease;
+    cursor: pointer; /* Memastikan kursor berubah jadi tangan */
+    position: relative;
+    z-index: 1000;
+}
+
+/* Hover diperkuat */
+.sidebar-item:hover {
+    background-color: #ddfcc5 !important;
+    color: #38B000 !important;
+}
+
+/* Pastikan item aktif tetap menang dari hover */
+.sidebar-item.active {
+    background: #38B000 !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 12px rgba(46, 125, 50, 0.2);
+}
