@@ -21,5 +21,5 @@ Proyek ini dirancang untuk mendigitalisasi manajemen data pada organisasi Laskar
 ---
 ### 👥 Development Team
 - **Member 1:** [Ardi Alfarisi](https://github.com/Ardialfarisi23)
-- **Member 2:** [Renal_Adriandri]
+- **Member 2:** [Renal_Adriandri](https://github.com/renaladriandri-byte)
 - **Member 3:** [Ismi_Nurcahyani]
